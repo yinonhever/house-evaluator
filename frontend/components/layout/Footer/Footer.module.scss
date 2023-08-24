@@ -1,0 +1,27 @@
+@use "styles/mixins" as *;
+@use "styles/variables" as *;
+
+.wrapper {
+  text-align: center;
+  background-color: $color1;
+  color: #fff;
+  font-weight: 500;
+  padding: 40px $padding-side-desktop;
+
+  @include respond(mobile) {
+    padding: 25px $padding-side-mobile;
+  }
+
+  p {
+    font-size: 15px;
+    margin: 0;
+
+    @include respond(mobile) {
+      font-size: 13px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}
