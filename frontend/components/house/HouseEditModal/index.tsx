@@ -1,6 +1,5 @@
 import { HouseData, HouseFormData } from "@/lib/types";
 import styles from "./HouseEditModal.module.scss";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -9,6 +8,7 @@ import { SubmitHandler } from "react-hook-form";
 import axios from "@/lib/axios";
 import { useState } from "react";
 import ErrorMessage from "@/components/UI/ErrorMessage";
+import { cx } from "@/lib/functions";
 
 export default function HouseEditModal({
   open,
@@ -44,9 +44,9 @@ export default function HouseEditModal({
 
   return (
     <Dialog open={open} onClose={onClose} scroll="paper" fullWidth>
-      <DialogTitle>Edit house #{house.id}</DialogTitle>
+      <DialogTitle textAlign="center">Edit house #{house.id}</DialogTitle>
       <DialogContent dividers>
-        <div className={styles.content}>
+        <div className={cx(styles.content, "form-wrapper")}>
           <HouseForm
             onSubmit={onSubmit}
             initialData={{ ...house }}

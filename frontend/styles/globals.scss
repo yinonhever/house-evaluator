@@ -38,3 +38,11 @@ a {
   justify-content: center;
   margin-bottom: 50px;
 }
+
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 800px;
+  margin: auto;
+}
