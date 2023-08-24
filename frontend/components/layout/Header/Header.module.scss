@@ -1,0 +1,18 @@
+@use "styles/mixins" as *;
+@use "styles/variables" as *;
+
+.navigation {
+  display: flex;
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &:first-child:not(:last-child) {
+      @include respond(mobile) {
+        display: none;
+      }
+    }
+  }
+}

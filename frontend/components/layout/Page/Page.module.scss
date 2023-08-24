@@ -1,0 +1,32 @@
+@use "styles/mixins" as *;
+@use "styles/variables" as *;
+
+.wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 70px $padding-side-desktop;
+
+  @include respond(tablet) {
+    padding: 70px $padding-side-tablet;
+  }
+
+  @include respond(mobile) {
+    padding: 50px $padding-side-mobile;
+  }
+}
+
+.heading {
+  font-weight: 800;
+  font-size: 50px;
+  color: $color1;
+  text-align: center;
+  margin-bottom: 60px;
+
+  @include respond(mobile) {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+}
