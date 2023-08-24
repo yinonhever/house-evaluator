@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { HouseModel } from "../models/house";
+import { House } from "../models/house";
 import { calculateRisk } from "../util/functions";
 import { Op } from "sequelize";
 
@@ -11,20 +11,20 @@ import { Op } from "sequelize";
  */
 export const createHouse: RequestHandler = async (req, res) => {
   try {
-    const { address, currentValue, loanAmount }: HouseModel = req.body;
+    const { address, currentValue, loanAmount }: House = req.body;
     if (!address || !currentValue || !loanAmount) {
       return res
         .status(400)
         .json({ msg: "Please fill in all the required fields" });
     }
-    const existingHouse = await HouseModel.findOne({ where: { address } });
+    const existingHouse = await House.findOne({ where: { address } });
     if (existingHouse) {
       return res
         .status(400)
         .json({ msg: "A house with that address already exists" });
     }
     const risk = calculateRisk(currentValue, loanAmount);
-    const house = await HouseModel.create({
+    const house = await House.create({
       address,
       currentValue,
       loanAmount,
@@ -45,7 +45,7 @@ export const createHouse: RequestHandler = async (req, res) => {
 export const getHouseById: RequestHandler = async (req, res) => {
   try {
     const { id: houseId } = req.params;
-    const house = await HouseModel.findByPk(houseId);
+    const house = await House.findByPk(houseId);
     if (!house) {
       return res.status(404).json({ msg: "House not found", houseId });
     }
@@ -65,20 +65,20 @@ export const getHouseById: RequestHandler = async (req, res) => {
 export const updateHouse: RequestHandler = async (req, res) => {
   try {
     const { id: houseId } = req.params;
-    const house = await HouseModel.findByPk(houseId);
+    const house = await House.findByPk(houseId);
     if (!house) {
       return res.status(404).json({ msg: "House not found", houseId });
     }
-    const { address, currentValue, loanAmount }: HouseModel = req.body;
+    const { address, currentValue, loanAmount }: House = req.body;
     if (!address || !currentValue || !loanAmount) {
       return res
         .status(400)
         .json({ msg: "Please fill in all the required fields" });
     }
-    const existingHouse = await HouseModel.findOne({
+    const existingHouseWithAddress = await House.findOne({
       where: { address, id: { [Op.not]: houseId } }
     });
-    if (existingHouse) {
+    if (existingHouseWithAddress) {
       return res
         .status(400)
         .json({ msg: "A different house with that address already exists" });

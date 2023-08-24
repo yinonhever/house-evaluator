@@ -12,9 +12,9 @@ import { sequelize } from "../util/database";
  * creating it if it doesn't exist (without altering or dropping it afterwards). The 'address' column
  * is set to be unique, to avoid duplicate houses in the table.
  */
-export class HouseModel extends Model<
-  InferAttributes<HouseModel>,
-  InferCreationAttributes<HouseModel>
+export class House extends Model<
+  InferAttributes<House>,
+  InferCreationAttributes<House>
 > {
   declare id: CreationOptional<number>;
   declare address: string;
@@ -23,7 +23,7 @@ export class HouseModel extends Model<
   declare risk: number;
 }
 
-HouseModel.init(
+House.init(
   {
     id: {
       type: DataTypes.INTEGER,
