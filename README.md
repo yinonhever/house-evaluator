@@ -2,7 +2,7 @@
 
 ## About
 
-**Home Evaluator** is a full-stack application used to save and display information about houses. The front-end is built with React and Next.js, while the back-end is built with Node.js and Express. The entire project is built with TypeScript.
+**House Evaluator** is a full-stack application used to save and display information about houses. The front-end is built with React and Next.js, while the back-end is built with Node.js and Express. The entire project is built with TypeScript.
 
 ## How to run
 
