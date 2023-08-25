@@ -1,5 +1,9 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+/**
+ * In the Document component, which is used automatically by Next.js to structure the DOM,
+ * we import the website's font from Google Fonts.
+ */
 export default function Document() {
   return (
     <Html lang="en">

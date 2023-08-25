@@ -4,6 +4,10 @@ import { HouseData } from "@/lib/types";
 import styles from "./HouseDetails.module.scss";
 import { formatToPct } from "@/lib/functions";
 
+/**
+ * A card that displays the details about a house. The house's data is passes from the parent component,
+ * the House Detail page.
+ */
 export default function HouseDetails({ house }: { house: HouseData }) {
   return (
     <Card elevation={3} sx={{ maxWidth: 700, margin: "auto", p: 3 }}>

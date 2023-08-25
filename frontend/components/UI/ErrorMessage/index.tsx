@@ -1,6 +1,10 @@
 import Alert from "@mui/material/Alert";
 import { AxiosError } from "axios";
 
+/**
+ * Reusable component used to display error messages in various parts of the application when they
+ * get into an error state.
+ */
 export default function ErrorMessage({ error }: { error: Error | string }) {
   const errorMsg =
     typeof error === "string"

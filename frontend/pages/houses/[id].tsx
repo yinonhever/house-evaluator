@@ -9,6 +9,10 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import HouseEditModal from "@/components/house/HouseEditModal";
 
+/**
+ * The house detail page, including a list of the house's details and a modal that can be opened
+ * and closed to edit the house's details.
+ */
 export default function HousePage({
   house
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {

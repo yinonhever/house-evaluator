@@ -5,6 +5,9 @@ import Button from "@mui/material/Button";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
+/**
+ * The website's header section, including the logo and navigation.
+ */
 export default function Header() {
   return (
     <AppBar position="static">
@@ -16,9 +19,6 @@ export default function Header() {
           <Button color="inherit">
             <Link href="/">New house</Link>
           </Button>
-          {/* <Button color="inherit">
-            <Link href="/houses">All houses</Link>
-          </Button> */}
         </div>
       </Toolbar>
     </AppBar>

@@ -6,6 +6,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Link from "next/link";
 import Button from "@mui/material/Button";
 
+/**
+ * A modal that's opened after a new house has been successfully created. The modal displays the
+ * ID of the newly created house, together with a button link that redirects to the new house's
+ * detail page.
+ */
 export default function ConfirmationModal({
   open,
   house

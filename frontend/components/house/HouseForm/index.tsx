@@ -3,6 +3,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./HouseForm.module.scss";
 import LoadingButton from "@mui/lab/LoadingButton";
 
+/**
+ * A reusable, shared form component, which is used in different places of the app to edit or
+ * create a house. The component uses the React Hook Form library to effectively manage, validate
+ * and submit the form's data.
+ */
 export default function HouseForm({
   initialData,
   onSubmit,

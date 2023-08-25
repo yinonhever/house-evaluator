@@ -10,6 +10,12 @@ import { useState } from "react";
 import ErrorMessage from "@/components/UI/ErrorMessage";
 import { cx } from "@/lib/functions";
 
+/**
+ * A pop-up modal used to edit a house's details and save them. It uses the HouseForm component to manage the form,
+ * with the existing house details as the initial form's data. Once the form is submitted and validated, this component
+ * sends request to the backend to update the house, and then sends the updated data to the parent component (the House
+ * Detail page).
+ */
 export default function HouseEditModal({
   open,
   onClose,
@@ -24,6 +30,11 @@ export default function HouseEditModal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
+  /**
+   * The function that's called after the form is submitted and validated. It sends request to the backend
+   * to update the house with the data from the form. If the update is successful, it closes the modal and sends
+   * the updated data to the parent component. Otherwise it displays an error message inside the modal.
+   */
   const onSubmit: SubmitHandler<HouseFormData> = async formData => {
     console.log("onSubmit", formData);
     setLoading(true);
