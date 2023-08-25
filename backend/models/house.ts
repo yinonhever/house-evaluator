@@ -41,11 +41,11 @@ House.init(
     },
     loanAmount: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      allowNull: false
     },
     risk: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      allowNull: false
     }
   },
   { sequelize, tableName: "houses", timestamps: true }
